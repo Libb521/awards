@@ -33,3 +33,18 @@ class Image(models.Model):
 
     def __str__(self):
         return self.description
+
+class Projects(models.Model):
+    project_name = models.CharField(max_length=50, blank=True)
+    project_photo = models.ImageField(upload_to='Pics')
+    description = models.TextField(max_length=400, blank=True)
+    github_repo = models.CharField(max_length=250, blank=True)
+    url = models.CharField(max_length=60, blank=True)
+    repo_owner = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.url      
+
+    @classmethod
+    def print_all(cls):
+        project = Projects.objects.all().order_by('-id')
