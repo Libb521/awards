@@ -6,7 +6,7 @@ from awardsapp import views as awardsapp_views
 from . import views
 
 urlpatterns=[
-    path('',views.welcome,name ='welcome'),
+    path('',views.home,name ='home'),
     # path('newprofile/',views.profile,name = 'profile'),
     # path('image/',views.add_image,name = 'upload_image'),
     # path('search/',views.search,name = 'search'),
@@ -16,5 +16,3 @@ urlpatterns=[
     # path('logout/', auth_views.LogoutView.as_view(),name='logout'),
     # path('login/', auth_views.LoginView.as_view(template_name='login.html'),name='login'),
 ]
-if settings.DEBUG:
-    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
