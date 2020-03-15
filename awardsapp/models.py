@@ -26,3 +26,10 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_profile(sender, instance, **kwargs):
         instance.profile.save()
+
+class Image(models.Model):
+    image = models.ImageField(upload_to='image/')
+    description =models.CharField(max_length=100, blank=True)
+
+    def __str__(self):
+        return self.description
