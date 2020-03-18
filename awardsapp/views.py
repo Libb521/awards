@@ -17,6 +17,10 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 def home(request):
+    current_user = request.user
+    projects = Projects.objects.all()
+    profile = Profile.objects.all()
+    image = Image.objects.all()
     return render(request, 'index.html')
 
 
