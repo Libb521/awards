@@ -17,4 +17,4 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
 
 def home(request):
-    return HttpResponse('Welcome to Awards')
+    return render(request, 'index.html')
