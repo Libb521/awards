@@ -49,4 +49,3 @@ def project(request, project_id):
     else Project.DoesNotExist:
         raise Http404()
     return render(request, 'project.html', locals())
-
