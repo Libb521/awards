@@ -18,3 +18,17 @@ def signup(request):
 
 def home(request):
     return render(request, 'index.html')
+
+
+def profile(request):
+    current_user = request.user
+    if request.method =='POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect( 'profile')
+
+def search(reques):
+    if request.method =='POST':
+        form = SearchForm(request,POST)
+    return render(request, 'search.html')
