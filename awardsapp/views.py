@@ -49,3 +49,16 @@ def project(request, project_id):
     else Project.DoesNotExist:
         raise Http404()
     return render(request, 'project.html', locals())
+
+def upload_form(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = UploadForm(request.post, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.uploaded_by = current_user
+            image.save()
+            return redirect('home')
+    else:
+        form = UploadForm()
+    return render(requesr, 'upload.html', {'uploadform': form})
