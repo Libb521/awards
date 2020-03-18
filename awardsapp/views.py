@@ -27,6 +27,11 @@ def profile(request):
         if form.is_valid():
             form.save()
             return redirect( 'profile')
+    else:
+        form = ProfileForm()
+        my_projects = Projects.objects.filter(owner=current_user)
+        my_profile = profile.objects.get(user_id=current_user)
+    return render(request, 'profile.html', locals())
 
 def search(reques):
     if request.method =='POST':
