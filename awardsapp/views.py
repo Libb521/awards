@@ -41,3 +41,12 @@ def search(reques):
     if request.method =='POST':
         form = SearchForm(request,POST)
     return render(request, 'search.html')
+
+def project(request, project_id):
+    try:
+        this_project = Projects.objects.get(id=project_id)
+        print(this_project)
+    else Project.DoesNotExist:
+        raise Http404()
+    return render(request, 'project.html', locals())
+
