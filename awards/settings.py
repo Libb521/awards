@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'awardsapp',
     'bootstrap3',
     'widget_tweaks',
+    'form_tags',
 ]
 
 MIDDLEWARE = [
