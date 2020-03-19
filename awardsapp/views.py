@@ -2,6 +2,7 @@ from django.contrib.auth import login as auth_login
 from django.shortcuts import render, redirect
 from .models import Projects, Image, Profile
 from django.http import HttpResponse, Http404
+from .forms import *
 
 from .forms import SignUpForm
 
@@ -63,5 +64,5 @@ def upload_form(request):
             return redirect('home')
     else:
         form = UploadForm()
-    return render(requesr, 'upload.html', {'uploadform': form})
+    return render(request, 'upload.html', {'uploadform': form})
 
