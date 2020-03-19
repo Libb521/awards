@@ -21,6 +21,7 @@
             class="fa fa-user fa-fw w3-margin-right"></i>Profile</a>
             <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
             class="fa fa-sign-out fa-fw w3-margin-right"></i>Logout</a>
+            <a style="font-size: 12px;" class="dropdown-item" href="{% url 'logout' %}">Logout</a>
             <form role="search" class="w3-hide-small" action="{%url 'search'%}">
                     <input type="text" name="project"
                         class="w3-bar-item w3-input w3-transparent w3-padding-large w3-hover-light-grey w3-right"

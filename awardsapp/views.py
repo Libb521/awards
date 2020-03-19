@@ -41,8 +41,8 @@ def profile(request):
 
 def search(reques):
     
-    if 'project_image' in request.GET and request.GET['project_image']:
-        search_term = request.GET["project_image"]
+    if 'projects' in request.GET and request.GET["projects"]:
+        search_term = request.GET["projects"]
         searched_projects = Projects.search_projects(search_term)
         message = f"{search_term}"
         context = {
