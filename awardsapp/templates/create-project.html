@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<br><br><br><br>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <div class="card" style="font-size: small; background-color: rgba(187, 227, 255, 0.353); color: black; font-family: Nunito;">
+          <div class="card-body">
+              <form  method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                  <legend class="border-bottom mb-4 text-center  mt-5">Submit Your Project</legend>
+                  {{form|crispy}}
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-info"  value="SUBMIT">
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

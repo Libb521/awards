@@ -12,7 +12,7 @@ class SignUpForm(UserCreationForm):
 class UploadForm(forms.ModelForm):
     class Meta:
         model = Projects
-        fields = ('project_name', 'project_photo', 'description', 'url', 'repo_owner')
+        fields = ('project_name','project_photo','description','url','repo_owner')
 
 class ProfileForm(forms.ModelForm):
     class Meta:

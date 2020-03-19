@@ -3,7 +3,8 @@ from django.shortcuts import render, redirect
 from .models import Projects, Image, Profile
 from django.http import HttpResponse, Http404
 from .forms import *
-
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .forms import SignUpForm
 
 def signup(request):
@@ -39,11 +40,23 @@ def profile(request):
     return render(request, 'profile.html', locals())
 
 def search(reques):
-    projects = Projects.objects.all()
-    parameter = request.get.get('project')
-    get = Projects.objects.filter(project_name__icontains=parameter)
-    print(get)
-    return render(request, 'search.html', locals())
+    
+    if 'project_image' in request.GET and request.GET['project_image']:
+        search_term = request.GET["project_image"]
+        searched_projects = Projects.search_projects(search_term)
+        message = f"{search_term}"
+        context = {
+            "projects":searched_projects,
+            "message":message,
+
+        }
+        return render(request, 'search.html', context)
+    else:
+        message = "You haven't searched for any user"
+        context = {
+            "message":message,
+        }
+        return render(request, 'search.html', context)
 
 def project(request, project_id):
     try:
@@ -56,7 +69,7 @@ def project(request, project_id):
 def upload_form(request):
     current_user = request.user
     if request.method == 'POST':
-        form = UploadForm(request.post, request.FILES)
+        form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
             image = form.save(commit=False)
             image.uploaded_by = current_user
@@ -64,5 +77,22 @@ def upload_form(request):
             return redirect('home')
     else:
         form = UploadForm()
-    return render(request, 'upload.html', {'uploadform': form})
+    return render(request, 'upload.html')
 
+
+@login_required
+def postproject(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.author = current_user
+            project.save()
+        return redirect('/')
+    else:
+        form = ProjectForm()
+    context = {
+        'form':form,
+    }
+    return render(request, 'create-project.html', context)
