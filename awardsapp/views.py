@@ -38,15 +38,17 @@ def profile(request):
     return render(request, 'profile.html', locals())
 
 def search(reques):
-    if request.method =='POST':
-        form = SearchForm(request,POST)
-    return render(request, 'search.html')
+    projects = Projects.objects.all()
+    parameter = request.get.get('project')
+    get = Projects.objects.filter(project_name__icontains=parameter)
+    print(get)
+    return render(request, 'search.html', locals())
 
 def project(request, project_id):
     try:
         this_project = Projects.objects.get(id=project_id)
         print(this_project)
-    else Project.DoesNotExist:
+    except Project.DoesNotExist:
         raise Http404()
     return render(request, 'project.html', locals())
 
@@ -62,3 +64,4 @@ def upload_form(request):
     else:
         form = UploadForm()
     return render(requesr, 'upload.html', {'uploadform': form})
+
