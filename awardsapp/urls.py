@@ -8,7 +8,7 @@ from . import views
 urlpatterns=[
     path('',views.home,name ='home'),
     path('newprofile/',views.profile,name = 'profile'),
-    # path('image/',views.add_image,name = 'upload_image'),
+    path('form/',views.upload_form,name = 'upload_form'),
     path('search/',views.search,name = 'search'),
     # path('showprofile/',views.display_profile,name = 'showprofile'),
     path('signup/', views.signup,name='signup'),
