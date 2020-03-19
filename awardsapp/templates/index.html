@@ -1,20 +1,6 @@
+{% extends 'base.html' %}
+{% block body %}
 <h1 style="text-align: center; color: blueviolet;">Welcome to my Awards platform</h1>
 
-<div class="w3-main" ">
-    <div class="w3-bar w3-black">
-        <a href="{%url 'home'%}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-green"><i
-        class="fa fa-home fa-fw w3-margin-right"></i>Home</a>
-        <a href="{%url 'profile'%}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
-        class="fa fa-user fa-fw w3-margin-right"></i>Profile</a>
-        <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
-        class="fa fa-sign-out fa-fw w3-margin-right"></i>Logout</a>
-        <form role="search" class="w3-hide-small" action="{%url 'search'%}">
-                <input type="text" name="project"
-                    class="w3-bar-item w3-input w3-transparent w3-padding-large w3-hover-light-grey w3-right"
-                    placeholder="Search away,,,,,">
-            </form>
-        </div>
 
-        </div>
-        </div>
-    </div>
+{% endblock body %}
