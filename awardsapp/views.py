@@ -35,8 +35,8 @@ def profile(request):
             return redirect( 'profile')
     else:
         form = ProfileForm()
-        my_projects = Projects.objects.filter(owner=current_user)
-        my_profile = profile.objects.get(user_id=current_user)
+        my_projects = Projects.objects.filter(repo_owner=current_user)
+        my_profile = Profile.objects.get(user_id=current_user)
     return render(request, 'profile.html', locals())
 
 def search(reques):
@@ -77,22 +77,20 @@ def upload_form(request):
             return redirect('home')
     else:
         form = UploadForm()
-    return render(request, 'upload.html')
+    return render(request, 'upload.html', {'form': form})
 
 
-@login_required
-def postproject(request):
+@login_required(login_url='/accounts/login/')
+def edit_prof(request):
+    
     current_user = request.user
+    user = User.objects.all()
     if request.method == 'POST':
-        form = ProjectForm(request.POST, request.FILES)
+        form = UpdateProfileForm(request.POST,request.FILES)
         if form.is_valid():
-            project = form.save(commit=False)
-            project.author = current_user
-            project.save()
-        return redirect('/')
+            profile = form.save(commit=False)
+            profile.user_id=current_user
+            return redirect('home')
     else:
-        form = ProjectForm()
-    context = {
-        'form':form,
-    }
-    return render(request, 'create-project.html', context)
+        form = UpdateProfileForm()
+        return render(request,'profile_edit.html',{'user':user,'form':form})

@@ -39,15 +39,15 @@
             <h4 style="text-align: center; color: rgb(12, 11, 12); margin-top: 30px;">Welcome to my Awards platform</h4>
             <div class="col-6-md""w3-center"><a class="w3-button w3-round w3-green" href="{%url 'upload_form'%}"><b>+ </b>Upload your project</a>
             <h4 class="w3-center">View and Rate My Projects</h4>
-            {% for project in projects %}
+            {% for project_items in projects %}
             <div class="w3-third w3-container w3-margin-bottom ">
                 <div class="row">
-                    <a href="{%url 'project'}"><img src="{{project.project_photo.url}}"
+                    <a href="{%url 'project'}"><img src="{{project_item.project.url}}"
                             alt="project_photo" style="width:100%" class="w3-hover-opacity"
                             title="Click to view more details"></a>
                     <div class="w3-container w3-white w3-card">
-                        <p><b>{{project.project_name}}</b></p>
-                        <p>{{project.description}}</p>
+                        <p><b>{{project_item.project_name}}</b></p>
+                        <p>{{project_item.description}}</p>
                         <div class="w3-center "></div>
                     </div>
                 </div>
