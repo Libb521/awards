@@ -6,27 +6,60 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
 
-    <div class="w3-main" ">
-        <div class="w3-bar w3-black">
-            <a href="{%url 'home'%}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-green"><i
-            class="fa fa-home fa-fw w3-margin-right"></i>Home</a>
-            <a href="{%url 'profile'%}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
-            class="fa fa-user fa-fw w3-margin-right"></i>Profile</a>
-            <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
-            class="fa fa-sign-out fa-fw w3-margin-right"></i>Logout</a>
+<nav id="grad" class="navbar-fixed-top navbar-default">
+    <div class="navbar-collapse ">
+      <div class="row">
+        <!-- ICON -->
+        <div class="col-md-4">
+          <ul class="nav navbar-nav navbar-left">
+           
+          </ul>
+        </div>
+        
+        <div class="col-md-4">
             <form role="search" class="w3-hide-small" action="{%url 'search'%}">
-                    <input type="text" name="project"
-                        class="w3-bar-item w3-input w3-transparent w3-padding-large w3-hover-light-grey w3-right"
-                        placeholder="Search away,,,,,">
-                </form>
-            </div>
+                <input type="text" name="project"
+                    class="w3-bar-item w3-input w3-transparent w3-padding-large w3-hover-light-grey w3-left"
+                    placeholder="Search away,,,,,">
+            </form >
+        </div>
     
+        <div class="col-md-4">
+          <ul style="padding-right: 15px;" class="nav navbar-nav navbar-right">
+            <li>
+              <a style="font-size:18px;color:black;font-weight: bold;" class="glyphicon glyphicon-signin "
+                href="{% url 'signup' %}">Sign-up</a>
+            </li>
+            <li>
+              <a style="font-size:18px;color:black;" class="glyphicon glyphicon-upload "
+                href="{% url 'upload_form' %}">Upload</a>
+            </li>
+            <li>
+              <a style="font-size:18px;color:black" class="glyphicon glyphicon-user "
+                href="{% url 'profile' %}">Profile</a>
+            </li>
+            <li>
+              <a style="font-size:18px;color:black" class="glyphicon glyphicon-off " href="/logout">Logout</a>
+            </li>
+            <div class="collapse navbar-collapse" id="mainMenu">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'profile' %}">{{ user.username }}</a>
+                </li>
+              </ul>
             </div>
+          </ul>
+      </div>
+    
+  </nav>
+  <br>
+  <br>
+  <style>
+  #grad {
+    background-color: rgb(250, 117, 28); 
+  } 
+  </style>
 
-  </div>
-</nav>
 </body>
 </html>
