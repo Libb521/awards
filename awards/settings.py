@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'form_tags',
     'star_ratings',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
