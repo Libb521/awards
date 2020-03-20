@@ -6,6 +6,7 @@ django-bootstrap3==12.0.3
 django-braces==1.14.0
 django-crispy-forms==1.9.0
 django-decouple==2.1
+django-filter==2.2.0
 django-form-tags==2.0
 django-heroku==0.3.1
 django-model-utils==4.0.0
@@ -14,7 +15,9 @@ django-star-ratings==0.9.1
 django-staticfiles==1.2.1
 django-svg-templatetag==1.0.1
 django-widget-tweaks==1.4.6
+djangorestframework==3.11.0
 gunicorn==20.0.4
+Markdown==3.2.1
 Pillow==7.0.0
 psycopg2==2.8.4
 pytz==2019.3
