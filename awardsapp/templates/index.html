@@ -11,22 +11,22 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link href="https://fonts.googleapis.com/css?family=Lobster|Righteous&display=swap" rel="stylesheet">
 <body class="w3-light-grey w3-content" style="max-width:1600px">
 
     <!-- !PAGE CONTENT! -->
-    <div class="w3-main" ">
+    <div class="w3-main">
         <div class=" w3-bar w3-grey">
-        <a href="{%url 'home'%}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-green"><i
-                class="fa fa-home fa-fw w3-margin-right"></i>Home</a>
+        <a href="{%url 'home'%}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
+                class="fa fa-home fa-fw w3-margin-left"></i>Home</a>
         <a href="{%url 'profile'%}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
-                class="fa fa-user fa-fw w3-margin-right"></i>Profile</a>
+                class="fa fa-user fa-fw w3-margin-left"></i>Profile</a>
         <a href="{% url 'logout' %}" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i
-                class="fa fa-sign-out fa-fw w3-margin-right"></i>Logout</a>
+                class="fa fa-sign-out fa-fw w3-margin-left"></i>Logout</a>
         <form role="search" class="w3-hide-small" action="{%url 'search'%}">
             <input type="text" name="project"
                 class="w3-bar-item w3-input w3-transparent w3-padding-large w3-hover-light-grey w3-right"
-                placeholder="Search and hit enter...">
+                placeholder="Search Here,,,">
         </form>
     </div>
     </div>
@@ -36,9 +36,9 @@
 
 
     <div class="w3-row-padding">
-        <h4 style="text-align: center; color: rgb(12, 11, 12); margin-top: 30px;">Welcome to my Awards platform</h4>
-        <div class="col-6-md""w3-center"><a class="w3-button w3-round w3-grey" href="{%url 'upload_form'%}"><b>+
-                </b>Show your project</a>
+        <h4 style="text-align: center; color: rgb(12, 11, 12); margin-top: 30px; font-family: 'Righteous', cursive; border: 5px solid rgb(3, 3, 3); border-radius: 5px; border-color: grey;">Welcome to my Awards platform</h4>
+        <div class="col-6-md""w3-center"><a class="w3-button w3-round w3-grey" href="{%url 'upload_form'%}" style="font-family: 'Lobster', cursive;"><b>+
+                </b>Your project</a>
         </div>
             {% for project in projects %}
             <div class="w3-third w3-container w3-margin-bottom ">
