@@ -60,6 +60,9 @@
 ## Contacts
 For further questions you can send an email to eotieno39@yahoo.com
 
+## codebeat badge
+[![codebeat badge](https://codebeat.co/badges/07cfa214-d605-4d53-80f5-5325afc646d4)](https://codebeat.co/projects/github-com-libb521-awards-master)
+
 #### For more information read the following django and python documentation:
   - [DjangoDocumentation](https://docs.djangoproject.com/en/1.11/intro/install/)
   - [PythonDocumentation](https://www.python.org/doc/)
