@@ -27,7 +27,7 @@ def home(request):
     projects = Projects.objects.all()
     profile = Profile.objects.all()
     image = Image.objects.all()
-    return render(request, 'index.html')
+    return render(request, 'index.html',{'projects':projects, 'prof':profile, 'img':image} )
 
 @login_required(login_url='login')
 def profile(request):
