@@ -1,43 +1,25 @@
 {% extends 'base.html'%}
 {% load crispy_forms_tags %}
-
 {% block content %}
 {{block.super}}
-<div class="container">
-
-    <div class="row">
-      {% if projects%}
-        <h2>Found {{ projects|length }} of searched term {{message}}</h2>
-      {% else %}
-        <h2> Found 0 projects. {{message}}</h2>
-      {% endif %}
-  
-    </div>
-
-    <div class="row">
-
-        {% if projects %}
-          {% for project in projects %}
-            <div class="col-sm-6 col-md-3">
-                <h1>{{project.repo_owner}}</h1>
-            </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-              <img src="{{project.project.url}}" class="img-responsive" alt="Image">
-            </div>
-            <div class="row">
-                <p>{{project.project_photo}}</p>
-              </div>
-              <div class="row">
-                <p>{{project.project_name}}</p>
-              </div>
-            <div class="row">
-              <p>{{project.description}}</p>
-            </div>
-
-      
-          {% endfor %}
+        <div class="w3-row-padding w3-content"> 
+        {% if result %}
+        <p> Found this result: </p> 
+        {% for i in result%}
+     
+        <div class="w3-col s4">
+            <p><img class="post-search"  src="{{i.project_photo.url}}" class="w3-img" alt="Image" style="width:100%">
+            <strong>{{i.project_name}}</strong></p>
+        </div>
+    
+        
+       
+        {% endfor%}
+        <hr>
+     
+        
+        {% else %}
+    <p> Did not find a project matching the name </p>
         {% endif %}
-
-    </div>
-</div>
+    </div>  
 {% endblock %}

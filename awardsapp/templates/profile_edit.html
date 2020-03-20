@@ -1,29 +1,28 @@
 {% extends 'base.html'%}
+{% load bootstrap3 %}
 {% load crispy_forms_tags %}
-
-
 {% block content %}
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6 mt-5">
-        <div class="card">
-            <div class="card bg- pl-3 pr-3"  style="background-color: rgb(80, 80, 80);">
-              <form  method="post" id="exampleModalCenter" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="form-group">
-                  <legend class="border-bottom mb-4 text-center text-black mt-5">Update Account</legend>
-                  {{user_form|crispy}}
-                  {{profile_form|crispy}}
-
-                </div>
-                <div class="form-group">
-                  <input type="submit" class="btn btn-outline-info pl-2 pr-2"  value="Update">
-                </div>
-              </form>
+{{block.super}}
+<div class="w3-container w3-theme-l5">
+    <div class="w3-row">
+        <div class="w3-col m6 w3-display-middle " >
+        <div class="panel panel-default w3-card w3-round-4">
+            <div class="panel-heading w3-theme-d5">
+            <h3 class="w3-center w3-padding">Update Profile</h3>
             </div>
-          </div>
+            <div class="panel-body ">
+            <form  method="post" action="{%url 'update_profile'%}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% include 'includes/form.html' %}
+                <div class="form-group w3-center">
+                <input type="submit" class=" w3-center w3-margin w3-button w3-theme-d5" value="Post">
+                </div>
+                <input type="hidden" name="next" value="{{next}}">
+            </form>
+            </div>
         </div>
-      </div>
-      <div class="col-md-3"></div>
+        </div>
     </div>
-  </div>
+    </div>
+      {{form.media}}
+      {% endblock %}

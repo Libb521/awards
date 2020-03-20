@@ -8,12 +8,15 @@ from . import views
 urlpatterns=[
     path('',views.home,name ='home'),
     path('profile/',views.profile,name = 'profile'),
+    # path('accounts/', include('django.contrib.auth.urls')),
     path('form/',views.upload_form,name = 'upload_form'),
     path('search/',views.search,name = 'search'),
     path('update/',views.edit_prof,name='update_profile'),
     path('signup/', views.signup,name='signup'),
     path('logout/', auth_views.LogoutView.as_view(),name='logout'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'),name='login'),
+    path('api/projects', views.ProjectList.as_view()),
+    path('api/profiles', views.ProfileList.as_view()),
     re_path('ratings/', include('star_ratings.urls', namespace='ratings')),
 ]
 if settings.DEBUG:

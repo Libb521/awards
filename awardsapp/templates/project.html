@@ -1,39 +1,5 @@
-{% extends 'base.html' %}
-{% load ratings %}
-{% block content %}
-
-<body>
-  <hr class="mt-5">
-  <div class="container-fluid mt-5">
-    <div class="row">
-      <div class="col-md-4"> <br><br>
-        <span class="ml-2" style=""> <img class="rounded-circle img-fluid mr-1 " style="width: 45px; height: 40px"
-            src="{{ project.repo_owner.profile.image.url }}" alt=""> {{project.repo_owner}}</span>
-        <img src="{{project.project_image.url}}" class=" mt-2 w-100" alt="">
-        <a href="{{project.url}}"><input class="btn btn-info mt-3" type="button" value="Visit Site"></a>
-
-      </div>
-
-      <div class="col-md-4">
-        <br><br><br><br><br><br><br><br>
-        <h1 class="ml-5">Project Title</h1>
-        <hr>
-        <h4 class="mt-3 ml-5">~ {{project.project_name}}</h4>
-        <h1 class="ml-5 mt-5">Project Description</h1>
-        <hr>
-        <h4 class="mt-2 ml-5">~ {{project.description}}</h4>
-
-      </div>
-      <div class="col-md-4 mt-5">
-        <br><br><br><br><br><br>
-        <h2>Ratings</h2>
-        {% ratings project %}
-      </div>
-    </div>
-  </div>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-  {% endblock %}
-  
-
-</body>
+{% if this_project%}
+<p>{{this_project}}</p>
+{% else%}
+<p>Does not exist</p>
+{% endif%}
