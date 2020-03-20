@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import *
 from django.contrib import messages
 from .forms import SignUpForm
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 # Create your views here.
 
@@ -91,3 +93,18 @@ def edit_prof(request):
 @login_required(login_url='login')
 def logout_view(request):
     logout(request)
+
+class ProjectList(APIView):
+
+    def get(self, request, format=None):
+        allprojects = Projects.objects.all()
+        serializers = ProjectSerializer(allprojects, many=True)
+        return Response(serializers.data)
+
+
+class ProfileList(APIView):
+    
+    def get(self, request, format=None):
+        allprofiles = Profile.objects.all()
+        serializers = ProfileSerializer(allprofiles, many=True)
+        return Response(serializers.data)
