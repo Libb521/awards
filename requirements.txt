@@ -15,7 +15,7 @@ django-star-ratings==0.9.1
 django-staticfiles==1.2.1
 django-svg-templatetag==1.0.1
 django-widget-tweaks==1.4.6
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 gunicorn==20.0.4
 Markdown==3.2.1
 Pillow==8.1.1
